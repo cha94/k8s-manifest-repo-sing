@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-sing
+  namespace: sing
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      app: frontend-sing
+  template:
+    metadata:
+      labels:
+        app: frontend-sing

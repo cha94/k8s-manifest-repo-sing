@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-sing
+  namespace: sing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-sing
+  template:
+    metadata:
+      labels:
+        app: frontend-sing
+    spec:
+      containers:
+        - name: frontend-sing
+          image: 153524724655.dkr.ecr.ap-northeast-2.amazonaws.com/frontend-sing:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m
+            limits:
+              cpu: 500m
